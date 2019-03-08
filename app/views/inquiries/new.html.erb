@@ -1,0 +1,33 @@
+<%= form_with(model: @inquiry, local: true  ) do |form| %>
+  <% if @inquiry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @inquiry.errors.count %>件のエラーがあります。</h2>
+      <ul>
+
+      <% @inquiry.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="inquiry_title">
+    <%= form.label :Name %>
+    <%= form.text_field :name %>
+  </div>
+  
+  <div class="inquiry_title">
+    <%= form.label :Email %>
+    <%= form.text_field :email %>
+  </div>
+  
+  <div class="inquiry_title">
+    <%= form.label :Content %>
+    <%= form.text_field :content %>
+  </div>
+  
+  
+  <%= form.submit %>
+
+<% end %>
